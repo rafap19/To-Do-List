@@ -1,37 +1,47 @@
-const create = document.querySelector('#submit').onclick = createP
-const response = document.querySelector('#response')
+const add = document.querySelector('#submit').onclick = CreateListItem
+const ul = document.querySelector('#ul')
 const input = document.querySelector('#txt')
 
+const tasks = []
+    
 
-
-function createP(e){
-
+function CreateListItem(e){
     e.preventDefault()
-    
-    response.setAttribute('class','col')
 
-    const div = document.createElement("div")
+    if(input.value !==''){
+        const div = document.createElement('div')
         div.setAttribute('class','flex')
-        response.appendChild(div)
+        ul.appendChild(div)
 
-    const p = document.createElement("p")
-    p.textContent= input.value
-   div.appendChild(p)
-    input.value = ''
+        const li = document.createElement('li')
+            li.textContent = input.value
+            div.appendChild(li)
+            input.value = ''
+            
+            
+
+        const removeButton = document.createElement('i')
+            removeButton.setAttribute('class','fa-regular fa-trash-can')
+            div.appendChild(removeButton)
+            removeButton.addEventListener('click',RemoveListItem)
+
+        function RemoveListItem(){
+            ul.removeChild(div)
+            }
+    }else{
+        alert('Item is required!')
+    }
+}
+
     
 
-    const removeBt = document.createElement("button")
-    removeBt.textContent= 'Remove'
-    div.appendChild(removeBt)
-    removeBt.addEventListener('click',removeP)
 
 
-    function removeP(){
-        div.removeChild(removeBt)
-        div.removeChild(p)
-    }
 
-}
+  
+    
+   
+    
 
 
 

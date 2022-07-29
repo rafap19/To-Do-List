@@ -48,8 +48,9 @@ input{
     border: none;
 }
 
-p{
+li{
     color: white;
+    list-style-type: none;
 }
 
 form{
@@ -65,9 +66,18 @@ form{
 }
 
 .flex{
-    width: 20rem;
+    width: 12rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 4px;
+}
+
+.fa-regular{
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.589)
+}
+
+.fa-regular:hover{
+    color: rgba(211, 209, 209, 0.589)
 }
 
