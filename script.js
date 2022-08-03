@@ -2,28 +2,18 @@ const add = document.querySelector('#submit').onclick = CreateListItem
 const ul = document.querySelector('#ul')
 const input = document.querySelector('#txt')  
 const arr = []
-
 function CreateListItem(e){
     e.preventDefault()
-    arr.push(input.value)
-    localStorage.setItem('Item',JSON.stringify(arr))
-    localStorage.getItem('Item',JSON.stringify(arr))
-
-    const myPromise = new Promise((resolve,reject)=>{
-        if(input.value !== ''){
-            resolve('Item Added to the list!')
-        }else{
-            reject('ERROR,please add an item to the list!')
-        }
-    }).then((fullfilled)=>{
-        console.log('%c' + fullfilled, 'color:#7458B9')
-    }).catch((error)=>{
-        console.error(error)
-    })
-    
-    
     
     if(input.value !== ''){
+        arr.push(input.value)
+        console.log(input.value)
+        localStorage.setItem("Item",JSON.stringify(arr))
+    
+        
+        const fullfilled = 'Item Added to the list!'
+        console.log('%c' + fullfilled, 'color:#7458B9')
+
         const div = document.createElement('div')
         div.setAttribute('class','flex')
         ul.appendChild(div)
@@ -42,23 +32,14 @@ function CreateListItem(e){
             ul.removeChild(div)
             }
     }else{
+        const error = 'ERROR,please add an item to the list!'
+        console.error(error)
         alert('Item is required!')
     }
+
+
 }
 
-/*
-
-Estudar como colocar tabelas no console
-
-let devices = [
-            {
-              name: 'iPhone',
-              brand: 'Apple'
-            },
-          ]
-        console.table(devices)
-
-*/
 
     
 
