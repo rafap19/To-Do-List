@@ -1,33 +1,32 @@
 const add = document.querySelector('#submit').onclick = CreateListItem
 const ul = document.querySelector('#ul')
-const render = document.querySelector('#render')
 const input = document.querySelector('#txt')
-
-const arr = []
+const tasks = JSON.parse(localStorage.getItem('tasks')) || []
 
 function CreateListItem(e){
     e.preventDefault()
 
-    const PROMISE = new Promise((resolve,reject)=> input.value != '' ?
-     resolve(`Item ${input.value} Added to the list!`)
-    : reject('ERROR,please add an item to the list!')    
-    ).then(fullfilled => console.log('%c' + fullfilled, 'color:#7458B9')
-    ).catch(error=> console.error(error))
-
-    if(input.value !== ''){
-            createStorage()
-            input.value =''
-    }else{
-        showAlert()
+    function sendPromisse(){
+        const TASK_ADDED = new Promise((resolve,reject)=> input.value != '' ?
+        resolve(`Item ${input.value} Added to the list!`)
+       : reject('ERROR,please add an item to the list!')    
+       ).then(fullfilled => console.log('%c' + fullfilled, 'color:#7458B9')
+       ).catch(error=> console.error(error))
     }
+    sendPromisse()
+
+    function addItem() {
+        input.value !== '' ? createStorage() :showAlert()
+    }
+    addItem()
+    
 }
 
 
 function createStorage(){
-    if(input.value !== ''){
-        arr.push(input.value)
-        localStorage.setItem("Item",JSON.stringify(arr))
-    }
+    tasks.push(input.value)
+    input.value =''
+    localStorage.setItem("tasks",JSON.stringify(tasks))
 }
 
 
@@ -36,16 +35,17 @@ function showAlert(){
 }
 
 function Render(){
-
-    if(localStorage.Item == null){
+    
+    if(localStorage.tasks == null){
         ul.innerHTML = '<p>No Items</p>'
     }else{
+       for(task of tasks){
         const div = document.createElement('div')
         div.setAttribute('class','flex')
         ul.appendChild(div)
 
         const li = document.createElement('li')
-        li.textContent = JSON.parse(localStorage.Item)// <--- subtituí pelo localstorage.Item
+        li.textContent = task
         div.appendChild(li)
         input.value = ''
 
@@ -54,14 +54,15 @@ function Render(){
         div.appendChild(removeButton)
         removeButton.addEventListener('click',RemoveListItem)
 
-
     function RemoveListItem(){
         ul.removeChild(div)
         }
+       }
     }
     
 }
 Render()
+
 
 
 
