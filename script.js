@@ -19,6 +19,8 @@ function CreateListItem(e){
         input.value !== '' ? createStorage() :showAlert()
     }
     addItem()
+    ul.innerHTML = ''
+    Render()
     
 }
 
@@ -28,6 +30,7 @@ function createStorage(){
     input.value =''
     localStorage.setItem("tasks",JSON.stringify(tasks))
 }
+
 
 
 function showAlert(){
@@ -56,6 +59,7 @@ function Render(){
 
     function RemoveListItem(){
         ul.removeChild(div)
+        
         }
        });
     }
