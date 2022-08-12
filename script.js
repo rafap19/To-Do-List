@@ -60,6 +60,7 @@ function Render(){
 
     function RemoveListItem(){
         ul.removeChild(div)
+        localStorage.removeItem('tasks')
         
         }
        });
