@@ -39,7 +39,7 @@ function Render(){
     if(localStorage.tasks == null){
         ul.innerHTML = '<p>No Items</p>'
     }else{
-       for(task of tasks){
+       tasks.map(task => {
         const div = document.createElement('div')
         div.setAttribute('class','flex')
         ul.appendChild(div)
@@ -57,7 +57,7 @@ function Render(){
     function RemoveListItem(){
         ul.removeChild(div)
         }
-       }
+       });
     }
     
 }

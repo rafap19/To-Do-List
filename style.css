@@ -61,6 +61,7 @@ p{
 li{
     color: white;
     list-style-type: none;
+    text-transform: capitalize;
 }
 
 form{
