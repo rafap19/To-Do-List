@@ -20,6 +20,8 @@ body{
     border-radius: 4px;
     
 }
+
+
 h1{
     color: white;
 }
@@ -50,6 +52,10 @@ h1{
     border-radius: 2px;
     border: none;
     font-size: large;
+}
+
+p{
+    color: #FFF;
 }
 
 li{
