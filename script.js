@@ -8,29 +8,20 @@ const arr = []
 function CreateListItem(e){
     e.preventDefault()
 
-    const PROMISE = new Promise((resolve,reject)=>{
-        if(input.value != ''){
-            resolve('teste')
-        }else{
-            reject('failed')
-        }
-    }).then((fulfilled)=>{
-        console.log(fulfilled)
-    }).catch((error)=>{
-        console.error(error)
-    })/*
+    const PROMISE = new Promise((resolve,reject)=> input.value != '' ?
+     resolve(`Item ${input.value} Added to the list!`)
+    : reject('ERROR,please add an item to the list!')    
+    ).then(fullfilled => console.log('%c' + fullfilled, 'color:#7458B9')
+    ).catch(error=> console.error(error))
+
     if(input.value !== ''){
             createStorage()
             input.value =''
-            const fullfilled = 
-            console.log('%c' + fullfilled, 'color:#7458B9') 
-    
     }else{
-        const error = 'ERROR,please add an item to the list!'
-        console.error(error)
-        alert('Item is required!')
-    }*/
+        showAlert()
+    }
 }
+
 
 function createStorage(){
     if(input.value !== ''){
@@ -38,7 +29,11 @@ function createStorage(){
         localStorage.setItem("Item",JSON.stringify(arr))
     }
 }
-createStorage()
+
+
+function showAlert(){
+    alert('Item is required!')
+}
 
 function Render(){
 
@@ -67,6 +62,7 @@ function Render(){
     
 }
 Render()
+
 
 
 
