@@ -37,6 +37,7 @@ function showAlert(){
     alert('Item is required!')
 }
 
+document.getElementsByTagName('body').onload = Render
 function Render(){
     
     if(localStorage.tasks == null){
@@ -67,35 +68,6 @@ function Render(){
 }
 Render()
 
-
-
-
-
-
-//ul.textContent = JSON.parse(localStorage.Item)
-
-
-  /*
-  
-  const div = document.createElement('div')
-        div.setAttribute('class','flex')
-        ul.appendChild(div)
-
-    const li = document.createElement('li')
-        li.textContent = item// <--- subtituí pelo localstorage.Item
-        div.appendChild(li)
-        input.value = ''
-
-    const removeButton = document.createElement('i')
-        removeButton.setAttribute('class','fa-regular fa-trash-can')
-        div.appendChild(removeButton)
-        removeButton.addEventListener('click',RemoveListItem)
-
-
-    function RemoveListItem(){
-        ul.removeChild(div)
-        }
-  */
     
    
     
