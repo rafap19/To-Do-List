@@ -43,7 +43,7 @@ function Render(){
     if(localStorage.tasks == null){
         ul.innerHTML = '<p>No Items</p>'
     }else{
-       tasks.forEach(task => {
+       tasks.forEach((task,index) => {
         const div = document.createElement('div')
         div.setAttribute('class','flex')
         ul.appendChild(div)
@@ -56,13 +56,12 @@ function Render(){
         const removeButton = document.createElement('i')
         removeButton.setAttribute('class','fa-regular fa-trash-can')
         div.appendChild(removeButton)
-        removeButton.addEventListener('click',RemoveListItem)
-
-    function RemoveListItem(pos){
-        ul.removeChild(div)
-            tasks.splice(pos,1) 
+        removeButton.addEventListener('click',() =>{
+            ul.removeChild(div)
+            tasks.splice(index,1) 
             localStorage.setItem("tasks",JSON.stringify(tasks))
-     }
+        })
+
   });
  }
     
