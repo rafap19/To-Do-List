@@ -92,3 +92,26 @@ form{
     color: rgba(211, 209, 209, 0.589)
 }
 
+
+@media(max-width:620px) {
+   .cont{
+    width: 80%;
+    display: grid;
+   }
+
+   h1{
+    text-align: center;
+   }
+
+   .btn{
+    width: 14rem;
+    height: 2rem;
+    font-size: large;
+   }
+
+   #txt{
+    width:12rem;
+    height: 2rem;
+    font-size: 1.4rem;
+   }
+}
