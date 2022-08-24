@@ -54,7 +54,7 @@ function Render(){
         removeButton.addEventListener('click',() =>{
         //I do not use the "forEach index" because it was picking the wrong id
             ul.removeChild(div) 
-            let index = tasks.indexOf(task)
+            const index = tasks.indexOf(task)
             tasks.splice(index,1)
                 localStorage.setItem("tasks",JSON.stringify(tasks))
         })
